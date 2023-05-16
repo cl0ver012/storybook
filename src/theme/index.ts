@@ -1,9 +1,9 @@
-import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices } from "./types";
+import { Colors, Fonts, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices } from "./types";
 
 export interface PancakeTheme {
   siteWidth: number;
   isDark: boolean;
-
+  fonts: Fonts;
   colors: Colors;
   breakpoints: Breakpoints;
   mediaQueries: MediaQueries;

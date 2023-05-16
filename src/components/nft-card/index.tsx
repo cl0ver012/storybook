@@ -1,10 +1,10 @@
 /* eslint-disable react/require-default-props */
-import DateCountdown from "components/DateCountdownMin";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "../Img";
+import DateCountdown from "../util/DateCountdownMin";
 import { getLongAddress, getWholeImageUrl } from "../util/conversion";
-import NFTCardT
+import { NFTCardType, ProfileType } from "../util/types";
 import ARModal from "./ARModal";
 
 const saleType = {
@@ -59,13 +59,13 @@ const Timetrack = styled.div`
 `;
 
 const StyledImage = styled(Image)<{ imgType: string }>`
-  width: ${({ imgType }) => (imgType == "secondary" ? "334px" : "254px")};
+  width: ${({ imgType }) => (imgType === "secondary" ? "334px" : "254px")};
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
 
   video {
-    width: ${({ imgType }) => (imgType == "secondary" ? "334px" : "254px")};
+    width: ${({ imgType }) => (imgType === "secondary" ? "334px" : "254px")};
     height: 300px;
   }
 
@@ -129,7 +129,7 @@ const SaleInfo = styled.div`
 
 export default function NftCard({ nft, variant = "primary" }: NFTComponentPropsType): JSX.Element {
   const tokenInfo = { symbol: "123" };
-  const [profile, setProfile] = useState<unknown>({ name: "sdf", avatar: "sdfsdf" });
+  const [profile, setProfile] = useState<ProfileType>({ name: "sdf", avatar: "sdfsdf" });
   useEffect(() => {
     (async () => {
       setProfile({ name: "fd", avatar: "df" });
@@ -154,7 +154,7 @@ export default function NftCard({ nft, variant = "primary" }: NFTComponentPropsT
         >
           <SaleInfo>
             <p>{saleType[nft.saleType]}</p>
-            <h1>{nft.saleType == "NotSale" ? nft.name : `${nft.price} ${tokenInfo?.symbol}`}</h1>
+            <h1>{nft.saleType === "NotSale" ? nft.name : `${nft.price} ${tokenInfo?.symbol}`}</h1>
           </SaleInfo>
           {nft.saleType === "Auction" && (
             <div style={{ width: "fit-content" }}>

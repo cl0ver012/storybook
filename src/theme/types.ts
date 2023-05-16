@@ -31,6 +31,11 @@ export type Gradients = {
   bubblegum: string;
 };
 
+export type Fonts = {
+  primary: string;
+  secondary: string;
+};
+
 export type Colors = {
   primary: string;
   primaryBright: string;
@@ -51,7 +56,8 @@ export type Colors = {
   textSubtle: string;
   borderColor: string;
   card: string;
-
+  primaryBackground: string;
+  primaryBorderColor: string;
   // Gradients
   gradients: Gradients;
 
