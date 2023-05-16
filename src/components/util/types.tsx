@@ -41,9 +41,10 @@ export interface NftCountsType {
   activeOffer: number;
   auction: number;
 }
+type Sale = "NotSale" | "Auction" | "Direct Sell";
 
 export interface NFTCardType {
-  saleType?: string;
+  saleType?: Sale;
   name?: string;
   price?: string;
   image?: string;

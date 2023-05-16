@@ -10,7 +10,7 @@ import { PINATA_PRIMARY_IMAGE_SIZE, PINATA_SECONDARY_IMAGE_SIZE, default_image }
 import { getFileTypeFromURL } from "./util/api";
 import Skeleton from "./Skeleton";
 
-const IMAGE_SIZE = {
+const IMAGE_SIZE: any = {
   primary: PINATA_PRIMARY_IMAGE_SIZE,
   secondary: PINATA_SECONDARY_IMAGE_SIZE,
   full: "",
@@ -26,7 +26,7 @@ const VideoContainer = styled.div<{ show: boolean }>`
   height: ${({ show }) => (show ? "100%" : "0 !important")};
 `;
 
-const Image = ({ className = "", src, defaultImage = default_image, variant = "primary" }) => {
+const Image = ({ className = "", src = "", defaultImage = default_image, variant = "primary" }) => {
   const [imgSrc, setImgSrc] = useState(default_image);
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,9 @@ const Image = ({ className = "", src, defaultImage = default_image, variant = "p
         if (!src) return;
         const _type = await getFileTypeFromURL(src);
         setType(_type.fileType);
-      } catch (err) {}
+      } catch (err) {
+        console.log("Error Cateched in Image!");
+      }
     })();
   }, [src]);
   const getWholeComponent = () => {

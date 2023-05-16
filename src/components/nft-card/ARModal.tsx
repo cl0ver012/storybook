@@ -1,8 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { ChakraProvider, Modal, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import Spline from "@splinetool/react-spline";
-
-import React from "react";
 import Hexagon from "../util/icons";
 import { validateUri } from "../util/conversion";
 
@@ -48,7 +47,7 @@ const ArViewWrapper = styled.div<{ disabled: boolean }>`
       }
     `}
 `;
-const ARModal = ({ uri, content = "AR" }) => {
+const ARModal = ({ uri = "", content = "AR" }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <ChakraProvider>
